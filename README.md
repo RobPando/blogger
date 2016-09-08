@@ -1,1 +1,1 @@
-# blogger
+# blogger by Roberto Pando src: http://www.theodinproject.com/web-development-101/ruby-on-rails?ref=lnav 
