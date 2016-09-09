@@ -1,0 +1,10 @@
+<h3>Article tagged with: <%= @tag.name %></h3>
+
+<ul>
+	<% @tag.articles.each do |article| %>
+	<li>
+	<%= link_to article.title, article_path(article) %>
+	</li>
+	<% end -%>
+</ul><br>
+<%= link_to "Browse all tags", tags_path %>
