@@ -35,4 +35,19 @@ class ArticlesController < ApplicationController
 		Article.find(params[:id]).destroy
 		redirect_to articles_path
 	end
+
+	def remove_image
+		@article = Article.find(params[:id])
+		@article.image.destroy
+		@article.save
+		render 'edit'
+	end
 end
+
+
+
+
+
+
+
+

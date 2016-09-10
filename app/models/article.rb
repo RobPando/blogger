@@ -1,7 +1,10 @@
 class Article < ApplicationRecord
+	has_many :attachments
 	has_many :comments
 	has_many :taggings
 	has_many :tags, through: :taggings
+	has_attached_file :image, { :preserve_files => "false" }
+	validates_attachment_content_type :image, :content_type => [ "image/jpg", "image/jpeg", "image/png" ]
 
 	def tag_list=(tag_strings)
 		tag_names = tag_strings.split(",").collect { |s| s.strip.downcase }.uniq 
@@ -13,6 +16,9 @@ class Article < ApplicationRecord
 		self.tags.collect do |tag|
 			tag.name
 			end.join(", ")
+	end
+	def delete_image
+		@article.image = nil
 	end
 
 end
