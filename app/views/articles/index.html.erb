@@ -4,4 +4,4 @@
 	<li><%= link_to article.title, article_path(article) %></li>
 	<% end %>
 </ul>
-<p> <%= link_to "Create a New Article", new_article_path, class: "new_article" %> </p>
+<p> <%= link_to "Create a New Article", new_article_path, data: ({ confirm: "You must login first!"} unless logged_in?), class: "new_article" %> </p>
